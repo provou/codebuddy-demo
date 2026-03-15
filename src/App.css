@@ -1,0 +1,243 @@
+/* 全局重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 根变量 */
+:root {
+  --primary-blue: #6caaf5;
+  --text-primary: #333333;
+  --text-secondary: #999999;
+  --background-light: #f5f6f8;
+  --white: #ffffff;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  
+  /* 卡片等级颜色 */
+  --level-ss: #f5bf57;
+  --level-s: #e13b4f;
+  --level-a: #389ae9;
+  --level-b: #59c15b;
+  --level-unknown: #999999;
+}
+
+/* 应用容器 */
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e8e8e8;
+  padding: 20px;
+}
+
+/* 手机框架 */
+.phone-frame {
+  width: 375px;
+  height: 812px;
+  background-color: var(--background-light);
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* 状态栏 */
+.status-bar {
+  width: 100%;
+  height: 44px;
+  background-color: var(--white);
+  position: relative;
+  z-index: 100;
+}
+
+.status-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.status-left {
+  flex: 1;
+}
+
+.time {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.signal-icon,
+.wifi-icon,
+.battery-icon {
+  display: flex;
+  align-items: center;
+}
+
+.notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 30px;
+  background-color: #000;
+  border-radius: 0 0 20px 20px;
+}
+
+/* 主内容区域 */
+.main-content {
+  flex: 1;
+  padding: 56px 16px 90px;
+  overflow-y: auto;
+  height: calc(100% - 44px - 90px);
+}
+
+.section-header {
+  background-color: var(--white);
+  padding: 12px 0;
+  margin: 0 -16px;
+  padding-left: 16px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 卡片容器 */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* 卡片项 */
+.card-item {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: var(--card-shadow);
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-badge {
+  width: 24px;
+  height: 40px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.card-text {
+  flex: 1;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.card-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 底部导航栏 */
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--white);
+  padding-bottom: 8px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 56px;
+  padding: 0 30px;
+}
+
+/* 导航项 */
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 8px 20px;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.nav-item.active .nav-icon {
+  color: var(--primary-blue);
+}
+
+.nav-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.nav-item.active .nav-label {
+  color: var(--primary-blue);
+}
+
+/* Home Indicator */
+.home-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 134px;
+  height: 5px;
+}
+
+.indicator-bar {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 3px;
+}
+
+/* 响应式调整 */
+@media (max-width: 400px) {
+  .app-container {
+    padding: 0;
+  }
+  
+  .phone-frame {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
